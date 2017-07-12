@@ -19,7 +19,7 @@ module.exports = function (app) {
         res.send("you are inside the api server, welcome !!!");
     });
 
-    // require('./words')(app);
+    require('./words')(app);
 
     // Error Handling
     app.use(function (err, req, res, next) {
