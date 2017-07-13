@@ -1,5 +1,4 @@
-module.exports = function (app) {
-    var express = require('express');
+module.exports = function (express) {
     var router = express.Router();
 
     app.use(function (req, res, next) {
@@ -19,7 +18,7 @@ module.exports = function (app) {
         res.send("you are inside the api server, welcome !!!");
     });
 
-    require('./words')(app);
+    require('./word.routes')(app);
 
     // Error Handling
     app.use(function (err, req, res, next) {
