@@ -1,5 +1,6 @@
-module.exports = function (express) {
-    var router = express.Router();
+module.exports = function (app) {
+    var express = require('express');
+    var router  = express.Router();
 
     app.use(function (req, res, next) {
         res.header('Access-Control-Allow-Origin', '*');
