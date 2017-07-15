@@ -14,6 +14,10 @@ module.exports = function (app) {
         }
     });
 
+    router.get('/', function (req, res) {
+        res.send("Welcome to beeswords, \n all the APIs starts with /api/*");
+    });
+
     app.use('/api', router);
     router.get('/', function (req, res) {
         res.send("you are inside the api server, welcome !!!");
