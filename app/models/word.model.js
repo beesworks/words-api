@@ -9,7 +9,8 @@ var WordSchema = mongoose.Schema({
     soundUrl: String,
     images: Array,
     examples: Array,
-    videos: Array
+    videos: Array,
+    tags: Array
 }, { timestamps: { createdAt: 'addedAt', updatedAt: 'updatedAt' } });
 
 var wordsModel = mongoose.model('Words', WordSchema);
