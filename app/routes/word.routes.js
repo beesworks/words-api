@@ -18,7 +18,15 @@ module.exports = function (app) {
     });
 
     router.get('/', function (req, res, next) {
-
+        wordManager.getAllWords()
+            .then(function (data, error) {
+                if (error) console.log(error);
+                res.json({ success: true, data: data });
+            })
+            .catch(function (ex) {
+                console.log(222);
+                res.json(ex);
+            });
     });
 
     router.put('/', function (req, res, next) {
@@ -26,7 +34,7 @@ module.exports = function (app) {
     });
 
     router.delete('/', function (req, res, next) {
-
+        
     });
 
 };
