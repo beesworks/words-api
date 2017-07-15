@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 if (process.env.NODE_ENV === 'production') {
-    // TODO: add here connection for online mongodb    
+    mongoose.connect('mongodb://heroku_m57t1s62:heroku_m57t1s62@ds035975.mlab.com:35975/heroku_m57t1s62');
 } else {
     mongoose.connect('mongodb://localhost/words');
 }
