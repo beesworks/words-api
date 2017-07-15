@@ -6,23 +6,15 @@ module.exports = function (app) {
     app.use('/api/word', router);
 
     router.post('/', function (req, res, next) {
-        let word = {
-            lang: req.body.lang,
-            word: req.body.word,
-            type: req.body.type,
-            adjective: req.body.adjective,
-            description: req.body.description,
-            soundUrl: req.body.soundUrl,
-            images: req.body.images,
-            examples: req.body.examples,
-            videos: req.body.videos
-        };
-
-        wordManager.insertWord(word, (data) => {
-            console.log(data);
-            res.json(201, data);
-        })
-
+        wordManager.insertWord(req.body)
+            .then(function (data, error) {
+                if (error) console.log(error);
+                res.json({ success: true, data: data });
+            })
+            .catch(function (ex) {
+                console.log(222);
+                res.json(ex);
+            });
     });
 
     router.get('/', function (req, res, next) {
