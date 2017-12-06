@@ -4,7 +4,7 @@ var WordSchema = mongoose.Schema({
     lang: String,
     word: String,
     type: String,
-    adjective: String,
+    pronounce: String,
     description: String,
     soundUrl: String,
     images: Array,
