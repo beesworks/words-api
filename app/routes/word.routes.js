@@ -12,8 +12,7 @@ module.exports = function (app) {
                 res.json({ success: true, data: data });
             })
             .catch(function (ex) {
-                console.log(222);
-                res.json(ex);
+                res.json({ success: false, data: ex });
             });
     });
 
@@ -24,17 +23,30 @@ module.exports = function (app) {
                 res.json({ success: true, data: data });
             })
             .catch(function (ex) {
-                console.log(222);
-                res.json(ex);
+                res.json({ success: false, data: ex });
             });
     });
 
     router.put('/', function (req, res, next) {
-
+        wordManager.updateWord(req.body)
+            .then(function (data, error) {
+                if (error) console.log(error);
+                res.json({ success: true, data: data });
+            })
+            .catch(function (ex) {
+                res.json({ success: false, data: ex });
+            });
     });
 
     router.delete('/', function (req, res, next) {
-        
+        wordManager.deleteWord(req.body.id)
+            .then(function (data, error) {
+                if (error) console.log(error);
+                res.json({ success: true, data: data });
+            })
+            .catch(function (ex) {
+                res.json({ success: false, data: ex });
+            });
     });
 
 };
