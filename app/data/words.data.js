@@ -11,6 +11,10 @@ module.exports = {
         return Word.find({});
     },
 
+    getWordById: (id) => {
+        return Word.findById(id);
+    },
+
     updateWord: word => {
         return Word.findByIdAndUpdate(word._id, word);
     },

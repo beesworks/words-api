@@ -16,6 +16,18 @@ module.exports = function (app) {
             });
     });
 
+    router.get('/:id', function (req, res, next) {
+        let id = req.params.id;
+        wordManager.getWordById(id)
+            .then(function (data, error) {
+                if (error) console.log(error);
+                res.json({ success: true, data: data });
+            })
+            .catch(function (ex) {
+                res.json({ success: false, data: ex });
+            });
+    });
+
     router.get('/', function (req, res, next) {
         wordManager.getAllWords()
             .then(function (data, error) {
