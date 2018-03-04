@@ -3,9 +3,9 @@ module.exports = function (app) {
     var router = express.Router();
     var wordManager = require("./../data/words.data");
 
-    app.use('/api/word', router);
+    app.use('/api', router);
 
-    router.post('/', function (req, res, next) {
+    router.post('/word', function (req, res, next) {
         wordManager.insertWord(req.body)
             .then(function (data, error) {
                 if (error) console.log(error);
@@ -16,7 +16,7 @@ module.exports = function (app) {
             });
     });
 
-    router.get('/:id', function (req, res, next) {
+    router.get('/word/:id', function (req, res, next) {
         let id = req.params.id;
         wordManager.getWordById(id)
             .then(function (data, error) {
@@ -28,7 +28,7 @@ module.exports = function (app) {
             });
     });
 
-    router.get('/', function (req, res, next) {
+    router.get('/word', function (req, res, next) {
         wordManager.getAllWords()
             .then(function (data, error) {
                 if (error) console.log(error);
@@ -39,7 +39,7 @@ module.exports = function (app) {
             });
     });
 
-    router.put('/', function (req, res, next) {
+    router.put('/word', function (req, res, next) {
         wordManager.updateWord(req.body)
             .then(function (data, error) {
                 if (error) console.log(error);
@@ -50,7 +50,7 @@ module.exports = function (app) {
             });
     });
 
-    router.delete('/', function (req, res, next) {
+    router.delete('/word', function (req, res, next) {
         wordManager.deleteWord(req.body.id)
             .then(function (data, error) {
                 if (error) console.log(error);

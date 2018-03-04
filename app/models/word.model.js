@@ -1,4 +1,4 @@
-var mongoose = require('./../../mongo.config');
+var mongoose = require('./mongo.config');
 
 var WordSchema = mongoose.Schema({
     lang: String,
