@@ -6,6 +6,8 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.1",
     "mongoose": "^4.11.1"
   },
   "engines": {
