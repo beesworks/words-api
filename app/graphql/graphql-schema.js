@@ -58,6 +58,14 @@ const wordType = new GraphQLObjectType({
     tags: {
       type: new GraphQLList(GraphQLString),
       description: ''
+    },
+    addedAt: {
+      type: GraphQLString,
+      description: ''
+    },
+    updatedAt: {
+      type: GraphQLString,
+      description: ''
     }
   }
 })
