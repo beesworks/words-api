@@ -26,11 +26,11 @@ exports.wordInput = new GraphQLInputObjectType({
       description: '',
     },
     pronounce: {
-      type: new GraphQLNonNull(GraphQLString),
+      type: GraphQLString,
       description: '',
     },
     description: {
-      type: new GraphQLNonNull(GraphQLString),
+      type: GraphQLString,
       description: '',
     },
     soundUrl: {
