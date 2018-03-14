@@ -1,4 +1,9 @@
-const { GraphQLObjectType, GraphQLList, GraphQLID } = require("graphql");
+const {
+  GraphQLObjectType,
+  GraphQLList,
+  GraphQLID,
+  GraphQLInt
+} = require("graphql");
 const wordModel = require("../data/words.data");
 const { wordType } = require("./word-type");
 
@@ -9,8 +14,11 @@ exports.queryType = new GraphQLObjectType({
     words: {
       type: new GraphQLList(wordType),
       description: "this is the list of words returned",
+      args: {
+        top: { type: GraphQLInt }
+      },
       resolve: (_, args) => {
-        return wordModel.getAllWords();
+        return wordModel.getAllWords(args.top);
       }
     },
     word: {

@@ -6,8 +6,8 @@ module.exports = {
     return newWord.save();
   },
 
-  getAllWords: () => {
-    return Word.find({});
+  getAllWords: (top) => {
+    return Word.find({}).sort({ addedAt: '-1'}).limit(top);
   },
 
   getWordById: id => {
