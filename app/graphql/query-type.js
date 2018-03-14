@@ -2,7 +2,8 @@ const {
   GraphQLObjectType,
   GraphQLList,
   GraphQLID,
-  GraphQLInt
+  GraphQLInt,
+  GraphQLNonNull
 } = require("graphql");
 const wordModel = require("../data/words.data");
 const { wordType } = require("./word-type");
@@ -26,7 +27,7 @@ exports.queryType = new GraphQLObjectType({
       description: "this is single word return",
       args: {
         id: {
-          type: GraphQLID,
+          type: new GraphQLNonNull(GraphQLID),
           description: "this is the search id"
         }
       },
