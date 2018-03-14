@@ -2,6 +2,7 @@ const {
   GraphQLList,
   GraphQLString,
   GraphQLInputObjectType,
+  GraphQLNonNull,
 } = require('graphql');
 
 exports.wordInput = new GraphQLInputObjectType({
@@ -13,7 +14,7 @@ exports.wordInput = new GraphQLInputObjectType({
       description: '',
     },
     word: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
       description: '',
     },
     type: {
@@ -25,11 +26,11 @@ exports.wordInput = new GraphQLInputObjectType({
       description: '',
     },
     pronounce: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
       description: '',
     },
     description: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
       description: '',
     },
     soundUrl: {
