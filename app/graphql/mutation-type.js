@@ -1,7 +1,10 @@
 const { GraphQLObjectType, GraphQLID } = require("graphql");
 const { wordInput } = require("./words/word-input");
 const { wordType } = require("./words/word-type");
+const { userInput } = require("./users/user-input");
+const { userType } = require("./users/user-type");
 const wordModel = require("../data/words.data");
+const userModel = require("../data/users.data");
 
 exports.mutationType = new GraphQLObjectType({
   name: "Mutuation",
@@ -45,6 +48,18 @@ exports.mutationType = new GraphQLObjectType({
       },
       resolve: (_, args) => {
         return wordModel.deleteWord(args.id);
+      }
+    },
+    createUser: {
+      type: userType,
+      args: {
+        user: {
+          type: userInput,
+          description: "this is the input type"
+        }
+      },
+      resolve: (_, args) => {
+        return userModel.createUser(args.user);
       }
     },
   }
