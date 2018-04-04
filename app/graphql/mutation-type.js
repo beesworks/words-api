@@ -1,6 +1,6 @@
 const { GraphQLObjectType, GraphQLID } = require("graphql");
-const { wordInput } = require("./word-input");
-const { wordType } = require("./word-type");
+const { wordInput } = require("./words/word-input");
+const { wordType } = require("./words/word-type");
 const wordModel = require("../data/words.data");
 
 exports.mutationType = new GraphQLObjectType({

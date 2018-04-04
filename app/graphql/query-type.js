@@ -6,7 +6,7 @@ const {
   GraphQLNonNull
 } = require("graphql");
 const wordModel = require("../data/words.data");
-const { wordType } = require("./word-type");
+const { wordType } = require("./words/word-type");
 
 exports.queryType = new GraphQLObjectType({
   name: "Query",
