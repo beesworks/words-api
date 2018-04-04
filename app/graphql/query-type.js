@@ -3,6 +3,7 @@ const {
   GraphQLList,
   GraphQLID,
   GraphQLInt,
+  GraphQLString,
   GraphQLNonNull
 } = require('graphql');
 const wordModel = require('../data/words.data');
@@ -42,6 +43,32 @@ exports.queryType = new GraphQLObjectType({
       description: 'this is all users in system',
       resolve: (_, args) => {
         return userModel.getAllUsers();
+      }
+    },
+    userById: {
+      type: userType,
+      description: 'this is single user return',
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLID),
+          description: 'this is the search id'
+        }
+      },
+      resolve: (_, args) => {
+        return userModel.getUserById(args.id);
+      }
+    },
+    userByUsername: {
+      type: userType,
+      description: 'this is single user return',
+      args: {
+        username: {
+          type: new GraphQLNonNull(GraphQLString),
+          description: 'this is the search username'
+        }
+      },
+      resolve: (_, args) => {
+        return userModel.getUserByUsername(args.username);
       }
     }
   }

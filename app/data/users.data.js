@@ -14,6 +14,10 @@ module.exports = {
     return User.findById(id);
   },
 
+  getUserByUsername: name => {
+    return User.findOne({username: name});
+  },
+
   updateUser: (id, user) => {
     return User.findByIdAndUpdate(id, user);
   },
